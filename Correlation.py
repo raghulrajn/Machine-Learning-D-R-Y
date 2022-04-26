@@ -24,9 +24,9 @@ def getRedundantPairs(df):
             pairs_to_drop.add((cols[i], cols[j]))
     return pairs_to_drop
 
-def getTopAbsCorrelations(df, n=5):
-  ''' Get top 5 most correlated features in the given dataset'''
-    au_corr = df.corr().abs().unstack()
+def getTopAbsCorrelations(df, n=5,method = 'pearson):
+  ''' Get top 5 most correlated features in the given dataset. Method can be 'pearson', 'spearman', 'kendall' ''''
+    au_corr = df.corr(method = method).abs().unstack()
     labels_to_drop = getRedundantPairs(df)
     au_corr = au_corr.drop(labels=labels_to_drop).sort_values(ascending=False)
     print("Top {} Correlated features in given dataset".format(n))
