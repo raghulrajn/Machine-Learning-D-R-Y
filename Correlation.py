@@ -13,7 +13,7 @@ def drawCorrelationMatrix(df):
     plt.figure(figsize=(16,12))
     plt.title("Correlation heatmap between all parameters")
     fig = sns.heatmap(matrix, mask=mask, center=0, annot=True,
-                 fmt='.2f', square=True, cmap=cmap)
+                 fmt='.2f', square=True, cmap=cmap)    
     
 def getRedundantPairs(df):
     '''Get diagonal and lower triangular pairs of correlation matrix'''
@@ -24,8 +24,8 @@ def getRedundantPairs(df):
             pairs_to_drop.add((cols[i], cols[j]))
     return pairs_to_drop
 
-def getTopAbsCorrelations(df, n=5,method = 'pearson):
-  ''' Get top 5 most correlated features in the given dataset. Method can be 'pearson', 'spearman', 'kendall' ''''
+def getTopAbsCorrelations(df, n=5,method = 'pearson'):
+#   ''' Get top 5 most correlated features in the given dataset. Method can be 'pearson', 'spearman', 'kendall' ''''
     au_corr = df.corr(method = method).abs().unstack()
     labels_to_drop = getRedundantPairs(df)
     au_corr = au_corr.drop(labels=labels_to_drop).sort_values(ascending=False)
