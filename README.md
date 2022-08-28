@@ -1,2 +1,2 @@
-# Quick-Pandas-templates
-This repository contains quick python scripts that are repeatedly used in EDA on dataset
+# Don't Repeat Yourself
+This repository contains common Machine learning and pandas scripts that are usually used for Feature engineering, Plotting and ETL purposes
